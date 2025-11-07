@@ -1,62 +1,55 @@
-🧮 Glassmorphism Calculator
-Welcome to the Glassmorphism Calculator — a simple yet stylish web-based calculator built using HTML, CSS, and JavaScript. This project demonstrates both functional JavaScript logic for calculations and a modern UI with a glassmorphic effect (frosted glass look) for an appealing design.
+# Scientific Calculator
 
-🎨 About the Project
-This calculator is designed to provide a sleek, minimal, and interactive experience for performing basic arithmetic operations. It utilizes the glassmorphism design trend with blurred colorful backgrounds and transparent containers, making it stand out from traditional calculator UIs.
-
-Key Highlights:
-
-Glassmorphism UI: Inspired by modern design trends with background blur and semi-transparent layers.
-
-Responsive Centered Layout: Automatically centers the calculator on any screen size.
-
-Interactive Buttons: Smooth hover and click effects on calculator buttons.
-
-Basic Arithmetic: Supports addition (+), subtraction (-), multiplication (×), division (÷), decimal points, clear, delete, and evaluate operations.
-
-✨ Features
-✅ Fully functional calculator with error handling
-✅ Visually attractive with colorful blur backgrounds
-✅ Smooth animations on button interactions
-✅ Keyboard-free operation with on-screen buttons
-✅ Clean, organized HTML/CSS structure for easy customization
-
----
-
-# Calculator
-
-A simple web-based calculator built with HTML. This project provides a straightforward interface for performing basic arithmetic operations directly in your browser.
+This is a modern, advanced scientific calculator built with React, Vite, and Tailwind CSS.
 
 ## Features
 
-- User-friendly calculator layout
-- Performs basic operations: addition, subtraction, multiplication, and division
-- Responsive design (works on desktop and mobile browsers)
-- Lightweight and easy to customize
+- **Basic Operations**: Addition, Subtraction, Multiplication, Division.
+- **Standard Functions**: Percentage, Square Root, Exponentiation, Square.
+- **Trigonometric Functions**: sin, cos, tan (with Degree/Radian toggle).
+- **Logarithmic Functions**: Natural Log (ln), Base-10 Log (log).
+- **Constants**: Pi (π), Euler's number (e).
+- **Other**: Factorial (n!), Memory functions (M+, M-, MR, MC).
 
-## Getting Started
+## Tech Stack
 
-### Prerequisites
+- **Frontend Framework**: React.js (with Hooks)
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
 
-- Any modern web browser (Chrome, Firefox, Edge, Safari, etc.)
+## Deployment Instructions
 
-### How to Use
+You can deploy this application to a service like Vercel or Netlify.
 
-1. Clone or download this repository:
+### Vercel
+
+1.  **Fork this repository.**
+2.  **Go to your Vercel dashboard and click "Add New... > Project".**
+3.  **Import the forked repository.**
+4.  **Vercel will automatically detect that this is a Vite project and configure the build settings.**
+5.  **Click "Deploy".**
+
+### Netlify
+
+1.  **Fork this repository.**
+2.  **Go to your Netlify dashboard and click "Add new site > Import an existing project".**
+3.  **Connect to your Git provider and select the forked repository.**
+4.  **Netlify will automatically detect that this is a Vite project and configure the build settings.**
+5.  **Click "Deploy site".**
+
+## Local Development
+
+To run this project locally, follow these steps:
+
+1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Satya136-dvsn/Calculator.git
+    git clone <repository-url>
     ```
-2. Open the `index.html` file in your browser.
-3. Start calculating!
-
-## File Structure
-
-- `index.html` – Main HTML file for the calculator interface
-
-## Contributing
-
-Contributions are welcome! Feel free to fork the repository and submit pull requests.
-
-## License
-
-
+2.  **Install the dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
