@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Display from './components/Display';
 import Button from './components/Button';
 
+/**
+ * The main component for the scientific calculator.
+ *
+ * @returns {React.ReactElement} The rendered calculator component.
+ */
 const App = () => {
   const [displayValue, setDisplayValue] = useState('0');
   const [expression, setExpression] = useState('');
@@ -9,6 +14,11 @@ const App = () => {
   const [isRadians, setIsRadians] = useState(true);
   const [memory, setMemory] = useState(0);
 
+  /**
+   * Handles button clicks and routes them to the appropriate function.
+   *
+   * @param {string} value - The value of the button that was clicked.
+   */
   const handleButtonClick = (value) => {
     if (displayValue === 'Error') {
       clearDisplay();
@@ -33,6 +43,11 @@ const App = () => {
     }
   };
 
+  /**
+   * Handles number inputs.
+   *
+   * @param {string} num - The number that was entered.
+   */
   const handleNumberInput = (num) => {
     if (previousInput === 'operator' || previousInput === 'result') {
       setDisplayValue(num);
@@ -42,10 +57,20 @@ const App = () => {
     setPreviousInput('number');
   };
 
+  /**
+   * Handles parenthesis inputs.
+   *
+   * @param {string} paren - The parenthesis that was entered.
+   */
   const handleParentheses = (paren) => {
     setDisplayValue(displayValue === '0' ? paren : displayValue + paren);
   };
 
+  /**
+   * Handles operator inputs.
+   *
+   * @param {string} operator - The operator that was entered.
+   */
   const handleOperatorInput = (operator) => {
     const num = parseFloat(displayValue);
     let result = 0;
@@ -150,6 +175,11 @@ const App = () => {
     setPreviousInput('result');
   };
 
+  /**
+   * Calculates the result of the expression.
+   *
+   * @param {string} [expr=''] - The expression to calculate.
+   */
   const calculate = (expr = '') => {
     try {
       const currentExpression = (expr || `${expression} ${displayValue}`).replace('×', '*').replace('÷', '/').replace('xʸ', '**');
@@ -163,6 +193,12 @@ const App = () => {
     }
   };
 
+  /**
+   * Calculates the factorial of a number.
+   *
+   * @param {number} n - The number to calculate the factorial of.
+   * @returns {number} The factorial of the number.
+   */
   const factorial = (n) => {
     if (n < 0) return NaN;
     if (n === 0 || n === 1) return 1;
@@ -173,12 +209,18 @@ const App = () => {
     return result;
   };
 
+  /**
+   * Clears the display and resets the expression.
+   */
   const clearDisplay = () => {
     setDisplayValue('0');
     setExpression('');
     setPreviousInput(null);
   };
 
+  /**
+   * Clears the last entry from the display.
+   */
   const clearLastEntry = () => {
     if (displayValue === 'Error') {
       clearDisplay();
