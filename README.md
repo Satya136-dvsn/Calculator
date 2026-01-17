@@ -1,69 +1,85 @@
-# 🔬 Scientific Calculator
+<div align="center">
 
-A modern, feature-rich scientific calculator built with **React**, **Vite**, and **Tailwind CSS**. Features a sleek dark UI with smooth animations and full keyboard support.
+# 🧮 Scientific Calculator
 
-![Scientific Calculator](https://img.shields.io/badge/React-19-blue) ![Vite](https://img.shields.io/badge/Vite-7-purple) ![Tailwind](https://img.shields.io/badge/Tailwind-4-cyan)
+### A Modern, Feature-Rich Scientific Calculator Web Application
 
-## ✨ Features
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-GitHub_Pages-success?style=for-the-badge)](https://satya136-dvsn.github.io/Calculator/)
+[![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-### Basic Operations
+<br/>
 
-- ➕ Addition, Subtraction, Multiplication, Division
-- 📊 Percentage calculations
-- 🔄 Sign toggle (+/-)
+<img src="https://img.shields.io/github/last-commit/Satya136-dvsn/Calculator?style=flat-square&color=blue" alt="Last Commit"/>
+<img src="https://img.shields.io/github/languages/code-size/Satya136-dvsn/Calculator?style=flat-square&color=green" alt="Code Size"/>
+<img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License"/>
 
-### Scientific Functions
+</div>
 
-| Category | Functions |
-|----------|-----------|
-| **Powers** | x², x³, xʸ, eˣ, 10ˣ, 2ˣ |
-| **Roots** | √x, ∛x |
-| **Trigonometry** | sin, cos, tan, asin, acos, atan |
-| **Hyperbolic** | sinh, cosh, tanh |
-| **Logarithms** | ln, log₁₀, log₂ |
-| **Other** | x!, 1/x, \|x\|, ⌊x⌋, ⌈x⌉ |
+---
 
-### Constants
+## 📋 Overview
 
-- π (Pi) = 3.14159...
-- e (Euler's number) = 2.71828...
+A **production-ready scientific calculator** featuring 40+ mathematical functions, built with modern web technologies. This project demonstrates proficiency in **React development**, **state management**, **event handling**, and **responsive UI design**.
 
-### Memory Functions
+**🔗 [Try the Live Demo →](https://satya136-dvsn.github.io/Calculator/)**
 
-- **M+** - Add to memory
-- **M-** - Subtract from memory  
-- **MR** - Recall memory
-- **MC** - Clear memory
+---
 
-### Advanced Features
+## ⚡ Key Features
 
-- 🔢 **2nd Mode** - Toggle for alternate functions
-- 📝 **Expression Display** - See your calculation as you type
-- ⌨️ **Keyboard Support** - Type naturally with your keyboard
-- 📐 **RAD/DEG Toggle** - Switch between radians and degrees
-- 🔙 **Answer Recall** - Use previous result with `Ans`
+<table>
+<tr>
+<td width="50%">
 
-## 🛠️ Tech Stack
+### 🔢 Scientific Functions
 
-- **Frontend**: React 19 with Hooks
-- **Build Tool**: Vite 7
-- **Styling**: Tailwind CSS 4
-- **Fonts**: Inter + JetBrains Mono
+- **Powers & Roots** — x², x³, xʸ, √x, ∛x
+- **Trigonometry** — sin, cos, tan + inverses
+- **Hyperbolic** — sinh, cosh, tanh
+- **Logarithms** — ln, log₁₀, log₂
+- **Exponentials** — eˣ, 10ˣ, 2ˣ
+- **Utilities** — factorial, absolute, floor, ceil
 
-## 🚀 Getting Started
+</td>
+<td width="50%">
 
-### Prerequisites
+### 🎯 User Experience
 
-- Node.js 18+
-- npm or yarn
+- **Keyboard Support** — Full keyboard navigation
+- **2nd Function Mode** — Access alternate operations
+- **Expression Preview** — See calculations as you type
+- **RAD/DEG Toggle** — Angle unit switching
+- **Memory Functions** — M+, M-, MR, MC
+- **Answer Recall** — Reuse previous results
 
-### Installation
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Technical Highlights
+
+| Aspect | Implementation |
+|--------|----------------|
+| **Architecture** | Component-based React with functional components and hooks |
+| **State Management** | React useState/useEffect for reactive state handling |
+| **Event Handling** | Keyboard event listeners with useCallback optimization |
+| **UI/UX** | Glassmorphism design, CSS gradients, ripple animations |
+| **Performance** | Vite bundling for fast HMR and optimized builds |
+| **Responsiveness** | Mobile-first design with Tailwind CSS utilities |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
 # Clone the repository
 git clone https://github.com/Satya136-dvsn/Calculator.git
 
-# Navigate to directory
+# Navigate to project directory
 cd Calculator
 
 # Install dependencies
@@ -73,63 +89,88 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+The app will be available at `http://localhost:5173`
 
-### Build for Production
-
-```bash
-npm run build
-```
+---
 
 ## ⌨️ Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `0-9` | Input numbers |
-| `.` | Decimal point |
-| `+` `-` `*` `/` | Operators |
-| `Enter` or `=` | Calculate |
-| `Escape` | Clear all |
-| `Backspace` | Clear last entry |
-| `(` `)` | Parentheses |
-| `^` | Power (xʸ) |
-| `%` | Percentage |
+| Key | Action | Key | Action |
+|-----|--------|-----|--------|
+| `0-9` | Input numbers | `Enter` | Calculate result |
+| `+ - * /` | Operators | `Escape` | Clear all |
+| `^` | Power (xʸ) | `Backspace` | Delete last |
+| `( )` | Parentheses | `%` | Percentage |
+
+---
 
 ## 📁 Project Structure
 
 ```
-Calculator/
-├── public/
-│   └── calculator.svg    # Favicon
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx    # Animated button component
-│   │   └── Display.jsx   # Calculator display
-│   ├── App.jsx           # Main calculator logic
-│   ├── index.css         # Global styles
-│   └── main.jsx          # Entry point
-├── index.html
-├── package.json
-├── tailwind.config.js
-└── vite.config.js
+src/
+├── components/
+│   ├── Button.jsx      # Animated button with ripple effect
+│   └── Display.jsx     # Dynamic display with expression preview
+├── App.jsx             # Core calculator logic & state
+├── index.css           # Global styles & animations
+└── main.jsx            # Application entry point
 ```
-
-## 🎨 UI Features
-
-- 🌙 Dark mode by default
-- ✨ Gradient backgrounds
-- 🎯 Button ripple effects
-- 📱 Fully responsive design
-- 🔤 Dynamic font sizing for long numbers
-
-## 📄 License
-
-MIT License - feel free to use this project for learning or personal use.
-
-## 👨‍💻 Author
-
-**Satya** - [GitHub](https://github.com/Satya136-dvsn)
 
 ---
 
-Made with ❤️ using React
+## 🧪 Core Functionality
+
+```javascript
+// Example: Power function implementation with expression building
+case 'xʸ':
+  if (expression) {
+    setExpression(`${expression} ${displayValue} ** `);
+  } else {
+    setExpression(`${displayValue} ** `);
+  }
+  setPreviousInput('operator');
+  return;
+```
+
+---
+
+## 📊 Tech Stack
+
+<div align="center">
+
+| Frontend | Tooling | Styling |
+|:--------:|:-------:|:-------:|
+| ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) | ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E) | ![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) |
+| React 19 | Vite 7 | Tailwind CSS 4 |
+
+</div>
+
+---
+
+## 🎨 Design Features
+
+- **🌑 Dark Theme** — Easy on the eyes, modern aesthetic
+- **✨ Glassmorphism** — Backdrop blur and translucent panels
+- **🎯 Micro-animations** — Button ripple effects and scale transitions
+- **📱 Responsive** — Works seamlessly on all screen sizes
+- **🔤 Dynamic Typography** — Auto-scaling for long numbers
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+### 👨‍💻 Author
+
+**Satya** — [GitHub Profile](https://github.com/Satya136-dvsn)
+
+---
+
+<sub>Built with ❤️ using React + Vite + Tailwind CSS</sub>
+
+</div>
