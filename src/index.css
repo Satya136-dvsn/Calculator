@@ -22,7 +22,8 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Custom animations */
+/* ── Animations ───────────────────────────────────── */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -47,12 +48,44 @@ button {
   }
 }
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 2s infinite;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.25s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.2s ease-out;
 }
 
 /* Glassmorphism effect */
@@ -84,4 +117,15 @@ button {
 button:focus-visible {
   outline: 2px solid #f97316;
   outline-offset: 2px;
+}
+
+/* Number input styling */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
