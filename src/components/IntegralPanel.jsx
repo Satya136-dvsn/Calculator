@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { numIntegrate, numDerivative, summation, product } from '../mathUtils';
+import { createSafeFunction } from '../safeEval';
 
 const IntegralPanel = ({ onClose }) => {
     const [mode, setMode] = useState('integrate');
@@ -8,24 +9,20 @@ const IntegralPanel = ({ onClose }) => {
     const [error, setError] = useState(null);
 
     const handleInput = (key, value) => {
+        // Limit input length
+        if (value.length > 200) return;
         setInputs(prev => ({ ...prev, [key]: value }));
         setResult(null);
         setError(null);
     };
 
-    const createFn = (expr) => {
-        try {
-            // eslint-disable-next-line no-new-func
-            return new Function('x', `return ${expr.replace(/\^/g, '**')}`);
-        } catch {
-            return null;
-        }
-    };
-
     const calculate = () => {
         setError(null);
-        const fn = createFn(inputs.expr || 'x');
-        if (!fn) {
+        let fn;
+        try {
+            // Safe parser — no code injection possible
+            fn = createSafeFunction(inputs.expr || 'x');
+        } catch {
             setError('Invalid expression');
             return;
         }

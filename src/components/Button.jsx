@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 /**
- * Enhanced button component with ripple effect, animations, and compact mode
+ * Enhanced button component with ripple effect, animations, ARIA support, and compact mode
  */
-const Button = ({ onClick, children, className, compact = false, disabled = false }) => {
+const Button = ({ onClick, children, className, compact = false, disabled = false, ariaLabel, ariaPressed }) => {
   const [ripple, setRipple] = useState({ show: false, x: 0, y: 0 });
 
   const handleClick = (e) => {
@@ -23,6 +24,8 @@ const Button = ({ onClick, children, className, compact = false, disabled = fals
     <button
       onClick={handleClick}
       disabled={disabled}
+      aria-label={ariaLabel || undefined}
+      aria-pressed={ariaPressed !== undefined ? ariaPressed : undefined}
       className={`
         relative overflow-hidden
         text-white font-semibold rounded-xl
@@ -49,6 +52,16 @@ const Button = ({ onClick, children, className, compact = false, disabled = fals
       <span className="relative z-10">{children}</span>
     </button>
   );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  compact: PropTypes.bool,
+  disabled: PropTypes.bool,
+  ariaLabel: PropTypes.string,
+  ariaPressed: PropTypes.bool,
 };
 
 export default Button;

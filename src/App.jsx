@@ -6,12 +6,17 @@ import HistoryPanel from './components/HistoryPanel';
 import EquationSolver from './components/EquationSolver';
 import BaseConverter from './components/BaseConverter';
 import IntegralPanel from './components/IntegralPanel';
+import { safeEval } from './safeEval';
 import {
   factorial, nPr, nCr, gcd, lcm, mod,
   toPolar, toRect, decToDms, dmsToDec, formatDms,
   nthRoot, randomNum, randomInt,
-  formatResult, toEngNotation,
+  formatResult,
 } from './mathUtils';
+
+// ─── Safety Limits ──────────────────────────────────
+const MAX_DISPLAY_LENGTH = 20;
+const MAX_EXPRESSION_LENGTH = 200;
 
 /**
  * Casio fx-991EX ClassWiz Scientific Calculator
@@ -121,12 +126,14 @@ const App = () => {
       setDisplayValue(num);
     } else {
       if (num === '.' && displayValue.includes('.')) return;
+      if (displayValue.length >= MAX_DISPLAY_LENGTH) return; // Prevent overflow
       setDisplayValue(displayValue === '0' ? num : displayValue + num);
     }
     setPreviousInput('number');
   };
 
   const handleParentheses = (paren) => {
+    if (displayValue.length >= MAX_DISPLAY_LENGTH) return;
     setDisplayValue(displayValue === '0' ? paren : displayValue + paren);
     setPreviousInput('paren');
   };
@@ -196,6 +203,10 @@ const App = () => {
   // ─── Operator Handler ──────────────────────────────
   const handleOperatorInput = (operator) => {
     const num = parseFloat(displayValue);
+    if (isNaN(num) && !['π', 'e', 'Ran#', 'Rad', 'mc', 'mr'].includes(operator)) {
+      setDisplayValue('Error');
+      return;
+    }
     let result = 0;
 
     // Two-operand functions
@@ -344,9 +355,13 @@ const App = () => {
         return;
       default:
         if (previousInput === 'operator') {
-          setExpression(expression.slice(0, -3) + ` ${operator} `);
+          const newExpr = expression.slice(0, -3) + ` ${operator} `;
+          if (newExpr.length > MAX_EXPRESSION_LENGTH) return;
+          setExpression(newExpr);
         } else if (expression) {
-          setExpression(`${expression} ${displayValue} ${operator} `);
+          const newExpr = `${expression} ${displayValue} ${operator} `;
+          if (newExpr.length > MAX_EXPRESSION_LENGTH) return;
+          setExpression(newExpr);
         } else {
           setExpression(`${displayValue} ${operator} `);
         }
@@ -360,7 +375,7 @@ const App = () => {
     setPreviousInput('result');
   };
 
-  // ─── Calculate Expression ──────────────────────────
+  // ─── Calculate Expression (SAFE — no eval/new Function) ──
   const calculate = () => {
     try {
       const fullExpression = expression ? `${expression} ${displayValue}` : displayValue;
@@ -370,8 +385,8 @@ const App = () => {
         .replace(/\s+/g, ' ')
         .trim();
 
-      // eslint-disable-next-line no-new-func
-      const result = new Function(`return ${sanitized}`)();
+      // Safe recursive descent parser — no code injection possible
+      const result = safeEval(sanitized);
 
       if (!isFinite(result)) {
         setDisplayValue('Error');
@@ -479,7 +494,7 @@ const App = () => {
   // ─── Render ────────────────────────────────────────
   return (
     <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl relative">
+      <div className="w-full max-w-2xl relative" role="application" aria-label="Scientific Calculator">
         {/* Calculator Container */}
         <div className="bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-5 border border-gray-700/50">
 
@@ -517,13 +532,15 @@ const App = () => {
               <Display value={displayValue} expression={expression} />
 
               {/* Button Grid */}
-              <div className="grid grid-cols-8 gap-1">
+              <div className="grid grid-cols-8 gap-1" role="group" aria-label="Calculator buttons">
                 {buttons.map((btn, i) => (
                   <Button
                     key={`${btn}-${i}`}
                     onClick={() => handleButtonClick(btn)}
                     className={getButtonStyle(btn)}
                     compact={true}
+                    ariaLabel={btn === 'Rad' ? (isRadians ? 'Switch to degrees' : 'Switch to radians') : btn === '2nd' ? 'Toggle second functions' : btn}
+                    ariaPressed={btn === '2nd' ? isSecondMode : btn === 'Rad' ? isRadians : undefined}
                   >
                     {btn === 'Rad' ? (isRadians ? 'RAD' : 'DEG') : btn === 'x⁻¹' ? '1/x' : btn}
                   </Button>
