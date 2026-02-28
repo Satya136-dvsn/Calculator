@@ -1,176 +1,126 @@
 <div align="center">
+  <img src="public/calculator.svg" alt="Calculator Logo" width="100" />
+  <h1>Casio fx-991EX Scientific Calculator Replica</h1>
+  <p>
+    <strong>A production-grade, highly precise scientific calculator built with React and Tailwind CSS.</strong><br/>
+    <em>Engineered for robust mathematical evaluation, security, and a premium user experience.</em>
+  </p>
 
-# 🧮 Scientific Calculator
+  [![React](https://img.shields.io/badge/React-18.3-blue.svg?logo=react)](https://react.dev)
+  [![Vite](https://img.shields.io/badge/Vite-5.4-purple.svg?logo=vite)](https://vitejs.dev/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com/)
+  [![Deployment](https://github.com/Satya136-dvsn/Calculator/actions/workflows/deploy.yml/badge.svg)](https://Satya136-dvsn.github.io/Calculator/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### A Modern, Feature-Rich Scientific Calculator Web Application
-
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-GitHub_Pages-success?style=for-the-badge)](https://satya136-dvsn.github.io/Calculator/)
-[![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-
-<br/>
-
-<img src="https://img.shields.io/github/last-commit/Satya136-dvsn/Calculator?style=flat-square&color=blue" alt="Last Commit"/>
-<img src="https://img.shields.io/github/languages/code-size/Satya136-dvsn/Calculator?style=flat-square&color=green" alt="Code Size"/>
-<img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License"/>
-
+  [**Live Demo**](https://Satya136-dvsn.github.io/Calculator/) •
+  [**Features**](#features) •
+  [**Technical Architecture**](#technical-architecture) •
+  [**Security Hardening**](#security--hardening)
 </div>
 
 ---
 
-## 📋 Overview
+## � Overview
 
-A **production-ready scientific calculator** featuring 40+ mathematical functions, built with modern web technologies. This project demonstrates proficiency in **React development**, **state management**, **event handling**, and **responsive UI design**.
+This project is a high-fidelity replica of the renowned Casio fx-991EX ClassWiz scientific calculator. It goes beyond basic arithmetic to offer advanced features like numerical integration, equation solving (quadratic/cubic/linear systems), and multi-base conversions.
 
-**🔗 [Try the Live Demo →](https://satya136-dvsn.github.io/Calculator/)**
-
----
-
-## ⚡ Key Features
-
-<table>
-<tr>
-<td width="50%">
-
-### 🔢 Scientific Functions
-
-- **Powers & Roots** — x², x³, xʸ, √x, ∛x
-- **Trigonometry** — sin, cos, tan + inverses
-- **Hyperbolic** — sinh, cosh, tanh
-- **Logarithms** — ln, log₁₀, log₂
-- **Exponentials** — eˣ, 10ˣ, 2ˣ
-- **Utilities** — factorial, absolute, floor, ceil
-
-</td>
-<td width="50%">
-
-### 🎯 User Experience
-
-- **Keyboard Support** — Full keyboard navigation
-- **2nd Function Mode** — Access alternate operations
-- **Expression Preview** — See calculations as you type
-- **RAD/DEG Toggle** — Angle unit switching
-- **Memory Functions** — M+, M-, MR, MC
-- **Answer Recall** — Reuse previous results
-
-</td>
-</tr>
-</table>
-
----
-
-## 🛠️ Technical Highlights
-
-| Aspect | Implementation |
-|--------|----------------|
-| **Architecture** | Component-based React with functional components and hooks |
-| **State Management** | React useState/useEffect for reactive state handling |
-| **Event Handling** | Keyboard event listeners with useCallback optimization |
-| **UI/UX** | Glassmorphism design, CSS gradients, ripple animations |
-| **Performance** | Vite bundling for fast HMR and optimized builds |
-| **Responsiveness** | Mobile-first design with Tailwind CSS utilities |
-
----
-
-## 🚀 Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/Satya136-dvsn/Calculator.git
-
-# Navigate to project directory
-cd Calculator
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-The app will be available at `http://localhost:5173`
-
----
-
-## ⌨️ Keyboard Shortcuts
-
-| Key | Action | Key | Action |
-|-----|--------|-----|--------|
-| `0-9` | Input numbers | `Enter` | Calculate result |
-| `+ - * /` | Operators | `Escape` | Clear all |
-| `^` | Power (xʸ) | `Backspace` | Delete last |
-| `( )` | Parentheses | `%` | Percentage |
-
----
-
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── Button.jsx      # Animated button with ripple effect
-│   └── Display.jsx     # Dynamic display with expression preview
-├── App.jsx             # Core calculator logic & state
-├── index.css           # Global styles & animations
-└── main.jsx            # Application entry point
-```
-
----
-
-## 🧪 Core Functionality
-
-```javascript
-// Example: Power function implementation with expression building
-case 'xʸ':
-  if (expression) {
-    setExpression(`${expression} ${displayValue} ** `);
-  } else {
-    setExpression(`${displayValue} ** `);
-  }
-  setPreviousInput('operator');
-  return;
-```
-
----
-
-## 📊 Tech Stack
+Designed with clean architecture and strict security protocols, this application demonstrates complex state management, custom algorithmic parsing, and responsive UI design without relying on bulky external math libraries.
 
 <div align="center">
-
-| Frontend | Tooling | Styling |
-|:--------:|:-------:|:-------:|
-| ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) | ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E) | ![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) |
-| React 19 | Vite 7 | Tailwind CSS 4 |
-
+  <img src="public/screenshot_comp.png" alt="Calculator Interface" width="600" />
 </div>
 
 ---
 
-## 🎨 Design Features
+## ✨ Key Features
 
-- **🌑 Dark Theme** — Easy on the eyes, modern aesthetic
-- **✨ Glassmorphism** — Backdrop blur and translucent panels
-- **🎯 Micro-animations** — Button ripple effects and scale transitions
-- **📱 Responsive** — Works seamlessly on all screen sizes
-- **🔤 Dynamic Typography** — Auto-scaling for long numbers
+### 1. Complex Mathematical Evaluation (COMP Mode)
+
+- **Advanced Operations:** Trigonometry (RAD/DEG), Hyperbolics, Logarithms, Roots, Exponents.
+- **Combinatorics & Number Theory:** Permutations (nPr), Combinations (nCr), GCD, LCM, Modulo.
+- **Engineering Notation:** Toggleable ENG mode for scientific data display.
+
+### 2. Calculus & Equation Solvers
+
+- **Numerical Integration (∫dx):** Implementation of Simpson's 1/3 Rule for definite integrals.
+- **Numerical Differentiation (d/dx):** High-precision central difference method.
+- **Equation Mode (EQN):** Solves Quadratic, Cubic, and 2x2/3x3 Systems of Linear Equations using determinant analysis and exact formulas.
+
+### 3. Developer & Engineering Tools
+
+- **Base-N Conversions:** Simultaneous conversion and display of Decimal, Hexadecimal, Octal, and Binary formats.
+- **Coordinate Conversions:** Rectangular ↔ Polar.
+
+### 4. Premium UI/UX
+
+- **Modern Design System:** Glassmorphism UI using Tailwind CSS with subtle animations and focus states.
+- **History Panel:** Persistent calculation history tracking.
+- **Responsive & Accessible:** Fully usable via keyboard interactions with full ARIA support.
 
 ---
 
-## 📄 License
+## �️ Technical Architecture
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Tech Stack
+
+- **Frontend Framework:** React 18 (Hooks)
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **Deployment:** GitHub Pages via GitHub Actions CI/CD
+
+### Core Engineering Decisions
+
+- **Zero External Math Dependencies:** All mathematical functions, including combinatorics, root finding, and calculus methodologies, were explicitly coded in `mathUtils.js` to demonstrate algorithmic proficiency.
+- **Custom Expression Parser:** Instead of relying on unsafe `eval()` or external libraries, the app utilizes a custom **Recursive Descent Parser** (`safeEval.js`) to tokenize and evaluate mathematical expressions securely.
+- **Modular Component Design:** Logic is strictly separated from presentation. Complex interactions are isolated into components like `<EquationSolver />`, `<IntegralPanel />`, and `<BaseConverter />`.
 
 ---
 
-<div align="center">
+## 🛡️ Security & Hardening
 
-### 👨‍💻 Author
+A significant engineering effort was placed on making this application production-ready and secure against common web vulnerabilities:
 
-**Satya** — [GitHub Profile](https://github.com/Satya136-dvsn)
+- **Eliminated Code Injection (XSS):** Completely removed `new Function()` and `eval()`, replacing them with a strict, lexer-based Expression Parser.
+- **Strict Input Validation:** Displays and expressions are length-capped (20 and 200 chars respectively) to prevent buffer overflows or DoS via massive inputs.
+- **Error Boundaries:** Implemented React `<ErrorBoundary />` to gracefully catch rendering crashes and provide a recovery UI instead of the white screen of death.
+- **Content Security Policy (CSP):** Strict CSP meta tags applied, limiting script execution strictly to `self`.
+- **Accessibility (a11y):** Full ARIA labels for screen readers, `aria-live` regions for dynamic result announcements, and proper focus management.
 
 ---
 
-<sub>Built with ❤️ using React + Vite + Tailwind CSS</sub>
+## 📦 Local Configuration & Installation
 
-</div>
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Satya136-dvsn/Calculator.git
+   cd Calculator
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 👨‍💻 Author
+
+**Satya**
+
+- GitHub: [@Satya136-dvsn](https://github.com/Satya136-dvsn)
+
+*This project was developed to demonstrate advanced React concepts, secure JavaScript parsing, and complex algorithmic implementation. Feel free to explore the source code!*
